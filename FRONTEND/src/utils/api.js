@@ -1,6 +1,4 @@
-export const BASE = import.meta.env.VITE_API_URL
-  ? import.meta.env.VITE_API_URL + "/api"
-  : "/api";
+export const BASE = import.meta.env.VITE_API_URL + "/api";
 
 export async function apiCall(token, path, method = "GET", body = null) {
   const res = await fetch(`${BASE}${path}`, {
@@ -11,6 +9,7 @@ export async function apiCall(token, path, method = "GET", body = null) {
     },
     ...(body ? { body: JSON.stringify(body) } : {}),
   });
+
   if (res.status === 401) throw new Error("UNAUTHORIZED");
   return res;
 }
