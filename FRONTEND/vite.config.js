@@ -13,8 +13,4 @@ export default defineConfig({
     }
   }
 });
-```
 
-Now create a new file `FRONTEND/.env.production`:
-```
-VITE_API_URL=https://edutrack-backend-production.up.railway.app
