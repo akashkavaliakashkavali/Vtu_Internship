@@ -20,11 +20,9 @@ public class SecurityConfig {
         return http.build();
     }
 
-    // ✅ THIS MUST BE INSIDE CLASS
     @Bean
     public CorsConfigurationSource corsSource() {
         CorsConfiguration cfg = new CorsConfiguration();
-
         cfg.setAllowedOriginPatterns(List.of("*"));
         cfg.setAllowedMethods(List.of("GET","POST","PUT","DELETE","OPTIONS"));
         cfg.setAllowedHeaders(List.of("*"));
@@ -32,7 +30,6 @@ public class SecurityConfig {
 
         UrlBasedCorsConfigurationSource src = new UrlBasedCorsConfigurationSource();
         src.registerCorsConfiguration("/**", cfg);
-
         return src;
     }
 
